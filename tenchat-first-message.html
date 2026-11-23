@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Первое сообщение — кампания для TenChat</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&family=Source+Serif+4:wght@600&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#fff;--ink:#0b1b3a;--mute:#5d6b86;--line:#cfd9ec;--ac:#1d4ed8;--pale:#e9f0ff;--fill:#c9dbff;--cb:#1d4ed8;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#0a1226;--ink:#e8efff;--mute:#93a3c4;--line:#26365e;--ac:#7ea2ff;--pale:#122044;--fill:#22397a;color-scheme:dark}}
+*{box-sizing:border-box}html{scroll-padding-top:env(safe-area-inset-top,0px);scroll-behavior:smooth}
+body{margin:0;background:var(--bg);color:var(--ink);font:17px/1.6 Inter,system-ui,-apple-system,"Segoe UI",sans-serif}
+.w{max-width:720px;margin:0 auto;padding:0 24px}
+section{padding:72px 0;border-top:1px solid var(--line)}
+section.hero{border:0;padding-top:64px}
+.k{font-size:12px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:var(--ac)}
+h1,h2{font-family:"Source Serif 4",Georgia,"Times New Roman",serif;font-weight:600;margin:0;letter-spacing:-.015em}
+h1{font-size:clamp(38px,9vw,68px);line-height:1.04;margin:24px 0 48px}
+h1 em{font-style:normal;color:var(--ac)}
+h2{font-size:clamp(28px,6vw,40px);line-height:1.12;margin:16px 0}
+p{margin:0 0 20px}
+.mute{color:var(--mute)}.lead{max-width:540px}
+.comp{display:flex;align-items:flex-end;gap:16px;border-bottom:2px solid var(--ink);padding-bottom:14px;min-height:76px;margin-bottom:20px}
+.comp .tx{flex:1;font-size:clamp(18px,4vw,22px)}
+.cur{display:inline-block;width:2px;height:1.1em;background:var(--ac);vertical-align:text-bottom;animation:b 1s steps(1) infinite}
+@keyframes b{50%{opacity:0}}
+.sq{flex:none;width:44px;height:44px;background:var(--ac);color:var(--bg);display:flex;align-items:center;justify-content:center;font-size:22px}
+.btn{height:52px;padding:0 28px;font:600 16px Inter,sans-serif;background:var(--ac);color:var(--bg);border:0;border-radius:0;cursor:pointer}
+.btn.g{background:transparent;color:var(--ac);border:1px solid var(--ac)}
+a{text-decoration:none}
+.tabs{display:flex;flex-wrap:wrap;gap:0 28px;margin:28px 0 8px;border-bottom:1px solid var(--line)}
+.tab{font:600 16px Inter,sans-serif;background:none;border:0;border-bottom:2px solid transparent;color:var(--mute);padding:12px 0;margin-bottom:-1px;cursor:pointer}
+.tab[aria-pressed="true"]{color:var(--ink);border-color:var(--ac)}
+.r{display:grid;grid-template-columns:92px 1fr;gap:16px;padding:20px 0;border-top:1px solid var(--line)}
+.rs{border-bottom:1px solid var(--line)}
+.l{font-size:12px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:var(--mute);padding-top:5px}
+.r.me .x{border-left:3px solid var(--ac);padding-left:16px}
+.r.res .x{color:var(--ac);font-weight:600;font-size:20px;line-height:1.4}
+.r.no .x{color:var(--mute)}
+.f{display:block;margin-bottom:20px}
+.f span{display:block;font-size:13px;color:var(--mute);margin-bottom:6px}
+select,input{width:100%;height:48px;font:inherit;font-size:16px;background:transparent;color:var(--ink);border:1px solid var(--ink);border-radius:0;padding:0 14px}
+.opt{display:block;width:100%;text-align:left;font:inherit;color:var(--ink);background:transparent;border:0;border-top:1px solid var(--line);border-left:3px solid transparent;padding:20px 0 20px 16px;cursor:pointer}
+.opt small{display:block;font-size:12px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:var(--ac);margin-bottom:6px}
+.opt[aria-pressed="true"]{border-left-color:var(--ac);background:var(--pale)}
+.vl{border-bottom:1px solid var(--line);margin-top:8px}
+.hold{position:relative;width:100%;height:60px;touch-action:none;user-select:none;-webkit-user-select:none;overflow:hidden;font:600 17px Inter,sans-serif;color:var(--ink);background:transparent;border:1px solid var(--ink);border-radius:0;cursor:pointer}
+.hold i{position:absolute;left:0;top:0;bottom:0;width:0;background:var(--fill)}
+.hold span{position:relative}
+.card{background:var(--cb);color:#fff;padding:32px;margin-top:40px}
+.card .k{color:#cfe0ff}
+.card .m{font:600 26px/1.3 "Source Serif 4",Georgia,serif;margin:14px 0 20px}
+.hid{display:none}
+footer{padding:40px 0 64px;border-top:1px solid var(--line);color:var(--mute);font-size:14px}
+</style>
+</head>
+<body>
+<div class="w">
+<section class="hero">
+<div class="k">TenChat · креативная кампания</div>
+<h1>ИИ напишет что угодно. <em>Отправить «привет»</em> должен ты.</h1>
+<div class="comp" aria-label="Черновик сообщения"><div class="tx"><span id="ty"></span><span class="cur"></span></div><div class="sq">→</div></div>
+<p class="mute lead">У большинства возможностей одно общее начало: сообщение, которое долго не решались отправить. Кампания «Первое сообщение» показывает путь от него до результата и помогает сделать шаг.</p>
+<a href="#path"><button class="btn">Смотреть путь</button></a>
+</section>
+
+<section id="path">
+<div class="k">01 · Путь</div>
+<h2>От первого «привет» до возможности</h2>
+<p class="mute lead">Три героя, три сценария из ТЗ. Истории иллюстративные; в кампании на их месте реальные пользователи TenChat.</p>
+<div class="tabs" role="group" aria-label="Сценарий">
+<button class="tab" data-i="0" aria-pressed="true">Дизайнер → клиент</button>
+<button class="tab" data-i="1" aria-pressed="false">Выпускник → работа</button>
+<button class="tab" data-i="2" aria-pressed="false">Основательница → партнёр</button>
+</div>
+<div id="tl" class="rs"></div>
+</section>
+
+<section id="try">
+<div class="k">02 · Кнопка смелости</div>
+<h2>Первое сообщение, которое звучит как ты</h2>
+<p class="mute lead">ИИ предлагает начала диалога под твой случай и вставляет то, что тебя зацепило в человеке. Отправляешь ты: кнопку нужно удержать 3 секунды.</p>
+<label class="f"><span>Кто ты</span><select id="prof"><option>дизайнер</option><option>разработчик</option><option>маркетолог</option><option>студент</option><option>основатель</option></select></label>
+<label class="f"><span>Что ищешь</span><select id="goal"><option value="0">клиента</option><option value="1">работу</option><option value="2">партнёра</option><option value="3">команду</option></select></label>
+<label class="f"><span>Что зацепило в человеке (например: ваш пост про онбординг)</span><input id="det" placeholder="ваш пост"></label>
+<button class="btn" id="gen">Предложить варианты</button>
+<div id="vars" class="vl hid"></div>
+<p style="margin-top:20px"><button class="btn g hid" id="more">Другие формулировки</button></p>
+<div id="sendbox" class="hid" style="margin-top:32px">
+<p class="mute">Выбери вариант и удерживай кнопку.</p>
+<button class="hold" id="hold"><i id="bar"></i><span id="hl">Удерживай, чтобы отправить</span></button>
+</div>
+<div id="out" class="hid" style="margin-top:48px">
+<div class="rs">
+<div class="r"><div class="l">Написал(а)</div><div class="x" id="yes"></div></div>
+<div class="r no"><div class="l">Промолчал(а)</div><div class="x">Неделя: чат закрыт. Месяц: тот же поиск. Год: всё как было.</div></div>
+</div>
+<div class="card">
+<div class="k">Контакт года</div>
+<div class="m" id="ct"></div>
+<div>Всё началось с одного сообщения.</div>
+<div style="font-size:13px;opacity:.8;margin-top:16px">#НаписалПервым · TenChat</div>
+</div>
+<p style="margin-top:24px"><button class="btn g" id="cp">Скопировать подпись для сторис</button></p>
+<p class="mute" id="cpm"></p>
+</div>
+</section>
+
+<section>
+<div class="k">03 · Кампания</div>
+<h2>Как это работает</h2>
+<div class="rs" style="margin-top:24px">
+<div class="r"><div class="l">Ролик</div><div class="x">15–20 секунд, вертикаль. Курсор мигает в пустом поле, нажатие, и синяя нить тянется к другому человеку.</div></div>
+<div class="r"><div class="l">Музей</div><div class="x">Реальные первые сообщения с опечатками и подписью «что случилось дальше».</div></div>
+<div class="r"><div class="l">Челлендж</div><div class="x">#НаписалПервым: скриншот своего первого сообщения и одна строка итога. Снимать ничего не нужно.</div></div>
+<div class="r"><div class="l">Карточка</div><div class="x">«Контакт года» в формате итогов года, которую хочется выложить в сторис.</div></div>
+<div class="r"><div class="l">Каналы</div><div class="x">TenChat, Telegram, VK Клипы, «Макс», RUTUBE.</div></div>
+</div>
+</section>
+
+<section>
+<div class="k">04 · Честно про ИИ</div>
+<h2>Где ИИ, а где человек</h2>
+<div class="rs" style="margin-top:24px">
+<div class="r"><div class="l">ИИ</div><div class="x">Генерирует кадры и видео, подбирает варианты первой фразы, превращает реальные истории в карточки и ролики, делает локализации.</div></div>
+<div class="r"><div class="l">Человек</div><div class="x">Пишет и отправляет сообщение, рассказывает свою историю, принимает решение. ИИ помогает, но не заменяет знакомство.</div></div>
+</div>
+</section>
+<footer>Концепт для хакатона TenChat «Один контакт меняет всё». Демо использует заготовленные шаблоны фраз; в продукте варианты генерирует ИИ.</footer>
+</div>
+<script>
+var S=[
+[["День 1","Здравствуйте! Увидела ваш запуск приложения. Кажется, в онбординге можно убрать два шага. Покажу как?",1],["День 1","Покажите.",0],["Неделя 2","Созвон на 20 минут и тестовая задача.",0],["Месяц 3","Договор на редизайн.",0],["Год 1","Своя студия из трёх человек. Клиент привёл ещё двоих.",2]],
+[["День 1","Добрый день! Я заканчиваю бакалавриат по аналитике. Ваш разбор метрик помог мне на проекте. Можно задать один вопрос?",1],["День 1","Давайте, пишите.",0],["Неделя 3","Совет по резюме и знакомство с тимлидом.",0],["Месяц 2","Стажировка в команде.",0],["Год 1","Штатная должность, которой не было в вакансиях.",2]],
+[["День 1","Здравствуйте! Мы делаем сервис для малого бизнеса, вы пишете про ту же аудиторию. Поищем, где наши продукты дополняют друг друга?",1],["Неделя 2","Первый созвон, общий план на пилот.",0],["Месяц 1","Пилот на двоих.",0],["Месяц 6","Совместный продукт.",0],["Год 1","Партнёр представил инвестору. Закрыт раунд.",2]]];
+var tl=document.getElementById("tl");
+function draw(i){tl.innerHTML="";S[i].forEach(function(s){var d=document.createElement("div");d.className="r"+(s[2]===1?" me":"")+(s[2]===2?" res":"");var l=document.createElement("div");l.className="l";l.textContent=s[0];var x=document.createElement("div");x.className="x";x.textContent=s[1];d.appendChild(l);d.appendChild(x);tl.appendChild(d)})}
+draw(0);
+document.querySelectorAll(".tab").forEach(function(b){b.onclick=function(){document.querySelectorAll(".tab").forEach(function(x){x.setAttribute("aria-pressed","false")});b.setAttribute("aria-pressed","true");draw(+b.dataset.i)}});
+var T="Здравствуйте, я видел ваш проект и хотел бы…",n=0,ty=document.getElementById("ty");
+(function k(){ty.textContent=T.slice(0,n);if(n<T.length){n++;setTimeout(k,70)}else{setTimeout(function(){n=0;k()},4000)}})();
+var G=[
+[["Здравствуйте! На глаза попалось: {d}. Мысль не отпускает, потому что это близко к тому, чем занимаюсь я: я {p}. Если сейчас есть задача, где нужен свежий взгляд, с радостью расскажу, как вижу её решение.","Добрый день! Спасибо, что делитесь. Меня зацепило: {d}. Я {p}, и у меня есть пара мыслей, которые могут пригодиться вам в работе. Могу описать их в двух абзацах, без обязательств?"],
+["Здравствуйте! Я {p}. Пишу по делу. Меня зацепило: {d}. Думаю, могу помочь с вашей задачей. Пришлю один пример, а дальше решите сами. Подойдёт?","Добрый день! Коротко: я {p}, и то, что вы делаете, пересекается с моей работой. Меня зацепило: {d}. Могу прислать один пример, как это может выглядеть. Интересно?"],
+["Привет! Это сообщение жило у меня в голове всю неделю. Я {p}. Меня зацепило: {d}. Прямо в точку.","Здравствуйте! Это сообщение писалось полчаса, так что оцените старания. Я {p}. Меня зацепило: {d}. Хочется познакомиться."]],
+[["Здравствуйте! Я {p}, ищу команду, в которой можно расти рядом с сильными людьми. Меня зацепило: {d}. Если найдётся минутка, мне очень пригодится ваш совет, с чего лучше начать.","Добрый день! Мне важно учиться у тех, кто уже прошёл этот путь. Я {p}. Меня зацепило: {d}. Можно задать вам один вопрос о вашем пути в профессии?"],
+["Здравствуйте! Я {p}, ищу работу. Мне близко то, что вы делаете. Меня зацепило: {d}. Если у вас или у ваших знакомых открыта позиция, пришлю резюме и примеры работ. Удобно?","Добрый день! Коротко: я {p}, хочу работать в вашей сфере. Меня зацепило: {d}. Можно прислать короткое портфолио, если у вас есть открытые позиции?"],
+["Привет! Откровенно: писать незнакомым страшновато, но вы того стоите. Я {p}. Меня зацепило: {d}. Расскажете, как вы к этому пришли?","Здравствуйте! Я {p}, и вы, кажется, человек, у которого стоит поучиться. Меня зацепило: {d}. Можно познакомиться?"]],
+[["Здравствуйте! Я {p}, и мне кажется, наши направления могут дополнять друг друга. Меня зацепило: {d}. Давайте созвонимся на 15 минут и просто поищем общее?","Добрый день! Ваша работа вызывает уважение. Меня зацепило: {d}. Я {p}, и у меня есть идея, как нам можно сделать что-то вместе. Расскажу, если интересно."],
+["Здравствуйте! Я {p}. Хочу предложить партнёрство. Меня зацепило: {d}, у нас похожая аудитория. Могу прислать идею на одну страницу. Откликается?","Добрый день! Коротко: я {p}, ищу партнёров для совместного проекта. Меня зацепило: {d}. Давайте обсудим, где пересекаются наши задачи?"],
+["Привет! Кажется, мы занимаемся соседними вещами и нам стоило познакомиться раньше. Я {p}. Меня зацепило: {d}. Обсудим в чате?","Здравствуйте! Предупреждаю: у меня есть идея, и она слегка безумная. Я {p}. Меня зацепило: {d}. Расскажу в чате?"]],
+[["Здравствуйте! Я {p}, собираю команду для проекта и ищу людей, с которыми будет интересно. Меня зацепило: {d}. Можно рассказать, чем мы занимаемся, а вы решите, откликается ли?","Добрый день! Мне нравится, как вы работаете. Меня зацепило: {d}. Я {p}, и мы ищем человека, который смотрит на дело так же. Можно рассказать подробнее?"],
+["Здравствуйте! Я {p}, набираю людей в проект. Меня зацепило: {d}. Хочу предложить вам роль в команде. Пришлю описание, посмотрите?","Добрый день! Коротко: у нас проект, и не хватает человека вашего профиля. Я {p}. Меня зацепило: {d}. Можно созвониться на 10 минут?"],
+["Привет! Мы ищем того самого человека, и, кажется, это вы. Я {p}. Меня зацепило: {d}. Дадите шанс рассказать?","Здравствуйте! Скажу честно: ищу не резюме, а человека. Я {p}. Меня зацепило: {d}. Поболтаем?"]]];
+var TN=["Тепло","По делу","Легко"];
+var OUT=["постоянный клиент и рекомендации","работа, о которой не было вакансии","совместный проект","команда, с которой растёшь"];
+var vars=document.getElementById("vars"),msg="",more=document.getElementById("more");
+function gen(){
+var p=document.getElementById("prof").value,g=+document.getElementById("goal").value,d=document.getElementById("det").value.trim()||"ваш пост";
+vars.innerHTML="";msg="";document.getElementById("out").className="hid";document.getElementById("sendbox").className="hid";more.className="btn g";vars.className="vl";
+G[g].forEach(function(pair,i){var t=pair[Math.floor(Math.random()*2)].replace(/\{p\}/g,p).replace(/\{d\}/g,d);
+var o=document.createElement("button");o.className="opt";o.setAttribute("aria-pressed","false");
+var s=document.createElement("small");s.textContent=TN[i];o.appendChild(s);o.appendChild(document.createTextNode(t));
+o.onclick=function(){vars.querySelectorAll(".opt").forEach(function(x){x.setAttribute("aria-pressed","false")});o.setAttribute("aria-pressed","true");msg=t;document.getElementById("sendbox").className="";document.getElementById("out").className="hid";hl.textContent="Удерживай, чтобы отправить"};vars.appendChild(o)})}
+document.getElementById("gen").onclick=gen;more.onclick=gen;
+var hold=document.getElementById("hold"),bar=document.getElementById("bar"),hl=document.getElementById("hl"),t0=0,raf=0;
+function step(){var p=Math.min((performance.now()-t0)/3000,1);bar.style.width=(p*100)+"%";if(p>=1){done();return}raf=requestAnimationFrame(step)}
+function stop(){cancelAnimationFrame(raf);if(t0){bar.style.width="0";t0=0}}
+function done(){t0=0;hl.textContent="Отправлено";var g=+document.getElementById("goal").value;
+document.getElementById("yes").textContent="Неделя: ответ и звонок. Месяц: первая договорённость. Год: "+OUT[g]+".";
+document.getElementById("ct").textContent="«"+msg+"»";document.getElementById("out").className="";document.getElementById("out").scrollIntoView({behavior:"smooth",block:"nearest"})}
+hold.addEventListener("pointerdown",function(e){e.preventDefault();if(!msg)return;hl.textContent="Держи…";t0=performance.now();raf=requestAnimationFrame(step)});
+["pointerup","pointerleave","pointercancel"].forEach(function(ev){hold.addEventListener(ev,function(){if(t0){stop();hl.textContent="Удерживай, чтобы отправить"}})});
+document.getElementById("cp").onclick=function(){var s="Мой контакт года начался с одного сообщения. #НаписалПервым @TenChat";document.getElementById("cpm").textContent=s;try{navigator.clipboard.writeText(s)}catch(e){}};
+</script>
+</body>
+</html>
